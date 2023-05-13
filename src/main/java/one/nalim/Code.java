@@ -18,16 +18,14 @@
 
 package one.nalim;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
  * Specifies machine code to be associated with a native method.
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
+@Repeatable(CodeSet.class)
 public @interface Code {
     /**
      * Machine code for the method implementation
@@ -35,4 +33,19 @@ public @interface Code {
      * Typically, the code should end with a return instruction.
      */
     String value();
+
+    /**
+     * The operating system that will run the code specified in this annotation.
+     * When there are multiple {@link Code} annotations , the one with matching 'os' attribute
+     * will have precedence over the own without it.
+     */
+    Os os() default Os.UNSPECIFIED;
+
+    /**
+     * The operating system that will run the code specified in this annotation.
+     * When there are multiple {@link Code} annotations , the one with matching 'os' attribute
+     * will have precedence over the own without it.
+     */
+    Arch arch() default Arch.UNSPECIFIED;
+
 }

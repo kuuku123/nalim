@@ -2,6 +2,7 @@ package one.nalim.example;
 
 import one.nalim.Code;
 import one.nalim.Linker;
+import org.junit.jupiter.api.Test;
 
 public class Cpu {
 
