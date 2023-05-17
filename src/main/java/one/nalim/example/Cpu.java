@@ -2,7 +2,6 @@ package one.nalim.example;
 
 import one.nalim.Code;
 import one.nalim.Linker;
-import org.junit.jupiter.api.Test;
 
 public class Cpu {
 
@@ -15,5 +14,10 @@ public class Cpu {
 
     static {
         Linker.linkClass(Cpu.class);
+    }
+
+    public static void main(String[] args) {
+        long Alk = Cpu.rdtsc();
+        System.out.println("Alk = " + Alk);
     }
 }

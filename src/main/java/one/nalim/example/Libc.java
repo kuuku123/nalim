@@ -14,4 +14,9 @@ public class Libc {
     static {
         Linker.linkClass(Libc.class);
     }
+
+    public static void main(String[] args) {
+        System.out.println(Libc.getgid());
+        System.out.println(Libc.getuid());
+    }
 }

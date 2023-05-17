@@ -25,7 +25,6 @@ import java.lang.annotation.*;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-@Repeatable(LinkSet.class)
 public @interface Link {
     /**
      * Alternative name of the native function.
@@ -39,18 +38,4 @@ public @interface Link {
      * for translating arguments according to the native ABI.
      */
     boolean naked() default false;
-
-    /**
-     * The operating system that will run the code specified in this annotation.
-     * When there are multiple {@link Code} annotations , the one with matching 'os' attribute
-     * will have precedence over the own without it.
-     */
-    Os os() default Os.UNSPECIFIED;
-
-    /**
-     * The operating system that will run the code specified in this annotation.
-     * When there are multiple {@link Code} annotations , the one with matching 'os' attribute
-     * will have precedence over the own without it.
-     */
-    Arch arch() default Arch.UNSPECIFIED;
 }
