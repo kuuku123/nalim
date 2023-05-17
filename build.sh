@@ -6,6 +6,7 @@ javac --add-modules jdk.internal.vm.ci \
       --add-exports jdk.internal.vm.ci/jdk.vm.ci.meta=ALL-UNNAMED \
       --add-exports jdk.internal.vm.ci/jdk.vm.ci.runtime=ALL-UNNAMED \
       --source 11 --target 11 \
-      -d . src/one/nalim/*.java
+      -d . src/main/java/one/nalim/*.java
+      #-d . src/one/nalim/*.java
 
 jar cfm nalim.jar MANIFEST.MF one
